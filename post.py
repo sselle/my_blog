@@ -29,9 +29,15 @@ class Post(object): # (object) --> Die Klasse erbt alle Eigenschaften von "objec
             'created_date': self.timestamp
         }
     # get one post by id
-    @staticmethod
-    def get_single_post(post_id):
-        return Database.find_one(collection='posts', query={'id': post_id})
+    @classmethod
+    def get_single_post(cls, post_id):
+        post_data = Database.find_one(collection='posts', query={'id': post_id})
+        return cls(blog_id = post_data['blog_id'], 
+                    title=post_data['title'], 
+                    content= post_data['content'], 
+                    author=post_data['author'], 
+                    timestamp=post_data['timestamp'],
+                    post_id=post_data['post_id'])
     
     # get all the posts that belong to a specific blog
     @staticmethod
