@@ -4,7 +4,7 @@ import pymongo
 # hier wird eine statische Klasse angelegt --> kein Konstruktor
 # static properties werden direkt über die Klasse angesprochen, nicht über self --> Es gibt hier keine Instanzen der Klasse
 class Database(object):
-    URI = "mongodb://52.59.176.123:27017"
+    URI = "mongodb://54.93.59.226:27017"
     DATABASE = None
 
     @staticmethod
